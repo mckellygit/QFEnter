@@ -51,18 +51,33 @@ endfunction
 "      - otherwise: the target window is one of existing windows
 
 function! QFEnter#GetTabWinNR_Open()
-	wincmd p
+	try
+		pclose
+		wincmd k
+	catch
+		wincmd p
+	endtry
 	return [tabpagenr(), winnr(), 1, '']
 endfunction
 
 function! QFEnter#GetTabWinNR_VOpen()
-	wincmd p
+	try
+		pclose
+		wincmd k
+	catch
+		wincmd p
+	endtry
 	vnew
 	return [tabpagenr(), winnr(), 1, 'nw']
 endfunction
 
 function! QFEnter#GetTabWinNR_HOpen()
-	wincmd p
+	try
+		pclose
+		wincmd k
+	catch
+		wincmd p
+	endtry
 	new
 	return [tabpagenr(), winnr(), 1, 'nw']
 endfunction
@@ -88,7 +103,12 @@ function! QFEnter#GetTabWinNR_TOpen()
 	endif
 
 	" add this line to match the behavior of VOpen() and HOpen()
-	wincmd p
+	try
+		pclose
+		wincmd k
+	catch
+		wincmd p
+	endtry
 
 	tabnew
 
