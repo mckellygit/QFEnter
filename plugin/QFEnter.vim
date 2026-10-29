@@ -102,6 +102,12 @@ if !exists('g:qfenter_prevtabwin_policy')
 	let g:qfenter_prevtabwin_policy = 'qf'
 endif
 
+if !exists('g:qfenter_prev_win')
+	" can set to p (prev) or k (above)
+	" its the window to which the goto will apply
+	let g:qfenter_prev_win = 'p'
+endif
+
 if !exists('g:qfenter_custom_map_list')
 	let g:qfenter_custom_map_list = []
 endif

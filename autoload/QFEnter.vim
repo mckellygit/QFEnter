@@ -53,7 +53,11 @@ endfunction
 function! QFEnter#GetTabWinNR_Open()
 	try
 		pclose
-		wincmd k
+		if g:qfenter_prev_win == 'p'
+			wincmd p
+		elseif g:qfenter_prev_win == 'k'
+			wincmd k
+		endif
 	catch
 		wincmd p
 	endtry
@@ -63,7 +67,11 @@ endfunction
 function! QFEnter#GetTabWinNR_VOpen()
 	try
 		pclose
-		wincmd k
+		if g:qfenter_prev_win == 'p'
+			wincmd p
+		elseif g:qfenter_prev_win == 'k'
+			wincmd k
+		endif
 	catch
 		wincmd p
 	endtry
@@ -74,7 +82,11 @@ endfunction
 function! QFEnter#GetTabWinNR_HOpen()
 	try
 		pclose
-		wincmd k
+		if g:qfenter_prev_win == 'p'
+			wincmd p
+		elseif g:qfenter_prev_win == 'k'
+			wincmd k
+		endif
 	catch
 		wincmd p
 	endtry
@@ -105,7 +117,11 @@ function! QFEnter#GetTabWinNR_TOpen()
 	" add this line to match the behavior of VOpen() and HOpen()
 	try
 		pclose
-		wincmd k
+		if g:qfenter_prev_win == 'p'
+			wincmd p
+		elseif g:qfenter_prev_win == 'k'
+			wincmd k
+		endif
 	catch
 		wincmd p
 	endtry
